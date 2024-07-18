@@ -1,0 +1,14 @@
+﻿@using System.Linq
+@using Kanban.Common
+@model Kanban.Models.IssueState?
+
+@if (ViewData.ModelMetadata.IsNullableValueType)
+{
+    @Html.DropDownListFor(m => m, new SelectList(new[] { Tuple.Create((IssueState?)null, "brak") }
+        .Concat(Consts.IssueStates.Select(t => Tuple.Create((IssueState?)t.Key, t.Value))),
+        "Item1", "Item2", Model), ViewData["htmlAttributes"])
+}
+else
+{
+    @Html.DropDownListFor(m => m, new SelectList(Consts.IssueStates, "Key", "Value", Model), ViewData["htmlAttributes"])
+}

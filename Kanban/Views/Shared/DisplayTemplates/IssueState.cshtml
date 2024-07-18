@@ -1,0 +1,4 @@
+﻿@using Kanban.Common
+@model Kanban.Models.IssueState?
+
+@(ViewData.ModelMetadata.IsNullableValueType && (Model == null) ? "brak" : Consts.IssueStates[(IssueState)Model])

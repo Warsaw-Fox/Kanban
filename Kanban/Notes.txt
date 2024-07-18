@@ -1,0 +1,29 @@
+- przegenerowanie kontrollerow na mac os
+rm ./Controllers/PeopleController.cs
+rm ./Controllers/IssuesController.cs
+rm -rf ./Views/Issues
+rm -rf ./Views/People
+dotnet build
+dotnet aspnet-codegenerator controller -name IssuesController -outDir ./Controllers -actions -dc KanbanContext -m Issue -sqlite --useDefaultLayout -f
+dotnet aspnet-codegenerator controller -name PeopleController -outDir ./Controllers -actions -dc KanbanContext -m Person -sqlite --useDefaultLayout -f
+
+- przegenerowanie kontrollerow na windows
+del .\Controllers\PeopleController.cs
+del .\Controllers\IssuesController.cs
+del .\Views\Issues /q /s
+del .\Views\People /q /s
+dotnet build
+dotnet aspnet-codegenerator controller -name IssuesController -outDir ./Controllers -actions -dc KanbanContext -m Issue --useDefaultLayout -f
+dotnet aspnet-codegenerator controller -name PeopleController -outDir ./Controllers -actions -dc KanbanContext -m Person --useDefaultLayout -f
+
+
+
+- budowanie obrazu dockerowego otagowanego "release1" (uwaga: pwd musi byc obok plik .sln)
+docker build -f Kanban/Dockerfile -t release1 .
+
+- stworzenie kontenera o nazwie "kanban", strona dostepna pod adresem http://localhost:5000
+docker run -it --rm -p 5000:80 --name kanban release1
+
+docker exec -it 2d7f2e58abce /bin/sh
+du -sh ./
+

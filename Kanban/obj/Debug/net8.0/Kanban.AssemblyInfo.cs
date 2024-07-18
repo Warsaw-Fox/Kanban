@@ -10,10 +10,11 @@
 using System;
 using System.Reflection;
 
+[assembly: Microsoft.AspNetCore.Identity.UI.UIFrameworkAttribute("Bootstrap5")]
 [assembly: System.Reflection.AssemblyCompanyAttribute("Kanban")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9a5d9c9370a326dd147d5a94d61eef2bc9ef9fef")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ae968bf251d81fc9932afb68edd43c516446d928")]
 [assembly: System.Reflection.AssemblyProductAttribute("Kanban")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Kanban")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

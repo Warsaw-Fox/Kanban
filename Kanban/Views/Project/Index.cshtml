@@ -1,7 +1,9 @@
-@model Kanban.Models.ProjectInfo
+﻿@model Kanban.Models.ProjectInfo
 
 @{
     ViewData["Title"] = "Informacje o projekcie";
 }
 
 <h1>Witamy w @Model.Name !! </h1>
+
+@await Component.InvokeAsync("ProjectStats")
